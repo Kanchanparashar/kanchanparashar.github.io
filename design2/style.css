@@ -1,0 +1,206 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: #F3F4F6;
+    font-family: gilroy;
+    position: relative;
+    overflow: hidden;
+}
+#nav {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#left {
+    display: flex;
+    gap: 50px;
+    margin-left: 190px;
+}
+#left a{
+    text-decoration: none;
+    color: #6b5b4c;
+    font-size: 18px;
+    font-weight: 600;
+}
+#left a span{
+    color: black;
+}
+#right {
+    display: flex;
+    margin-right: 100px;
+    gap: 20px;
+}
+#box1{
+    display: flex;
+    gap: 5px;
+    background-color: #D37E56;
+    padding: 10px 10px;
+    color: #FFFBF7;
+    font-weight: 400;
+}
+#box1 i{
+    font-size: 20px;
+  
+}
+#box2{
+    padding: 10px 10px;
+}
+#box2 i{
+    font-size: 20px;
+  
+}
+#left1{
+    height: 60%;
+    width: 30%;
+    position: absolute;
+    top: 22%;
+    left: 8%;
+
+}
+
+#left1>h1{
+    font-size: 70px;
+}
+
+#left1>p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#search{
+    position: absolute;
+    width: 39%;
+    height: 52px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    top: 70%;
+    left: 8%;
+    z-index: 9999999;
+
+
+}
+#search i{
+    padding: 15px 15px;
+    background-color: #D37E56;
+    font-size: 25px;
+    color: #FFFBF7;
+}
+#pic1{
+    position: absolute;
+    height: 65%;
+    width: 25%;
+    background-image: url(https://images.unsplash.com/photo-1610632380989-680fe40816c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);
+    background-position: bottom;
+    top: 22%;
+    left: 48%;
+}
+#pic2{
+    position: absolute;
+    height: 60%;
+    width: 10%;
+    background-image: url(https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);
+    background-position: bottom;
+    top: 33%;
+    left: 75%;
+    z-index: 999;
+}
+#pic3{
+    position: absolute;
+    height: 60%;
+    width: 10%;
+    background-image: url(https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);
+    background-position: bottom;
+    top: 37%;
+    left: 87%;
+    z-index: 999;
+}
+
+#lines{
+    display: flex;
+    position: absolute;
+    left: 54%;
+    bottom: 10%;
+    gap: 8px;
+}
+#line1{
+    height: 5px;
+    width: 50px;
+    background-color: #D37E56;
+    border-radius: 10px;
+}
+.line2{
+    height: 4px;
+    width: 25px;
+    background-color: #D37E56;
+    border-radius: 20px;
+    opacity: 0.5;
+}
+#text {
+    width: 25%;
+    position: absolute;
+    left: 46%;
+    bottom: 2%;
+    font-size: 15px;
+}
+#uppertxt{
+    position: absolute;
+    top: 22%;
+    right: 10%;
+    z-index: 999;
+}
+#uppertxt>p {
+    margin-top: 10px;
+}
+#circle1{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #FFD9C6;
+    right: 10%;
+    top: 28%;
+    z-index: 99;
+}
+#circle2{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #efd5c8bf;
+    right: 6%;
+    top: 23%;
+    z-index: 9;
+}
+#circle3{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #efd5c8bf;
+    right: 4%;
+    top: 20%;
+}
+#search input {
+    text-decoration: none;
+    border: none;
+    font-size: 20px;
+}
+#main #bgimg{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    bottom: -10%;
+    background-image: url(https://media.istockphoto.com/id/1147301359/photo/ground-coffee-and-sugar-body-scrub-in-jar.jpg?s=612x612&w=0&k=20&c=bjIkocuq7tmwFRGoNmo5IiOs3M4gtAfHFQ_Yam6_xBM=);
+    background-position: top;
+}
