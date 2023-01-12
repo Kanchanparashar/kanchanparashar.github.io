@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+   <div class="calender-image">
+	<a href="javascript:void(0)" class="show_calendar">
+	 <img width="100%" style="float:right;max-height: 500px;" src="Digital-Calendar-Cover-Page.jpg">
+	</a>
+   </div>
+			
+    <div class="wrapper" style="display:none">
+      <header>
+        <p class="current-date"></p>
+        <div class="icons">
+          <span id="prev" class="material-symbols-rounded">chevron_left</span>
+          <span id="next" class="material-symbols-rounded">chevron_right</span>
+        </div>
+      </header>
+      <div class="calendar">
+        <ul class="weeks">
+          <li>Sun</li>
+          <li>Mon</li>
+          <li>Tue</li>
+          <li>Wed</li>
+          <li>Thu</li>
+          <li>Fri</li>
+          <li>Sat</li>
+        </ul>
+        <ul class="days"></ul>
+      </div>
+      <div id="btn">
+        <button>Synchronize</button>
+        <button>Share</button>
+      </div>
+    </div>
+    
+    <div class="calender-information" style="display:none">
+      <img width="100%" class="health_tip_image" style="max-height: 500px;" src="Health-Tip-Template-01-scaled.jpg">
+      <p id = "health-tip-date" class="health-tip-date"></p>
+      <p id = "health-tip" class="health-tip">Clean Your Carpets. It's a good idea to vacuum your carpets three times a week and steam clean them every year. That's because they can trap mold, cockroach droppings, dust mites, dirt, and dust that get into the air and into your lungs.</p>
+    </div>
+    
+    
+  </body>
+</html>
+
+
+<script>
+const daysTag = document.querySelector(".days"),
+currentDate = document.querySelector(".current-date"),
+prevNextIcon = document.querySelectorAll(".icons span");
+
+let date = new Date(),
+currYear = date.getFullYear(),
+currMonth = date.getMonth();
+
+const months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+
+const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), 
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), 
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); 
+    let liTag = "";
+
+    for (let i = firstDayofMonth; i > 0; i--) { 
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth; i++) { 
+
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
+                     && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday} calender-date" value="${i}">${i}</li>`;
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) {
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+    }
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    daysTag.innerHTML = liTag;
+}
+renderCalendar();
+
+prevNextIcon.forEach(icon => { 
+    icon.addEventListener("click", () => { 
+
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if(currMonth < 0 || currMonth > 11) { 
+            date = new Date(currYear, currMonth);
+            currYear = date.getFullYear(); 
+            currMonth = date.getMonth(); 
+        } else {
+            date = new Date(); 
+        }
+        renderCalendar(); 
+    });
+});
+$("li").click(function ()
+{       
+
+var selectedDate = $(this).attr("value");
+var selectedYear =  $('.current-date').html();
+
+var finalDate = selectedDate + selectedYear;
+
+if(selectedDate == "1"){
+var healthtip = "Get moving. exercise regularly. Ideally, you should exercise at least 30 minutes a day.";
+} else if (selectedDate == "5") {
+var healthtip = "Quit Smoking. Smoking causes your arteries to become narrower, which can raise your blood pressure. It also increases your risk of several types of cancer, as well as cardiovascular disease and dementia";
+}else if (selectedDate == "9") {
+var healthtip = "It also increases your risk of several types of cancer, as well as cardiovascular disease and dementi";
+}else if (selectedDate == "11") {
+var healthtip = "Check Your Appliances regularly. Wherever gas burns, as in certain cooktops, ovens, and space heaters, it makes a chemical called nitrous oxide. This gas can inflame your lungs, make you cough and wheeze, and trigger asthma.";
+} 
+$("p#health-tip").text(healthtip);
+
+if(finalDate){
+ $("p#health-tip-date").text(finalDate);
+}else{
+var test = "12 January 2023"
+ $("p#health-tip-date").text(test);
+}
+
+});
+</script>
+
+<script>
+$(document).on('click', '.days', function(){ 
+    $(".wrapper").css("display", "none");
+    $(".calender-information").css("display", "block")
+    
+});
+$(document).on('click', '.show_calendar', function(){ 
+    $(".calender-image").css("display", "none");
+    $(".wrapper").css("display", "block")
+});
+</script>
